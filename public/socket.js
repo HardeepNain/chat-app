@@ -16,7 +16,6 @@ socket.on("user-leave", function (name) {
   chatWindow.append(chatLeave);
 });
 
-// socket.js se aayi chat is on pe receive hogi aur as left chat sbke system pe append ho jaayegi
 socket.on("append-chat", function ({name ,chat}) {
   let chatLeft = document.createElement("div");
   chatLeft.classList.add("chat");

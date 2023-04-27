@@ -9,9 +9,8 @@ chatInputBox.addEventListener("keypress", function (e) {
     chatRight.classList.add("right");
     chatRight.innerHTML = chatInputBox.value;
     chatWindow.append(chatRight);
-
-    socket.emit("chat-append", chatInputBox.value);  // yha se humne chat ko emit kr diya joki app.js me receive hogi
     
+    socket.emit("chat-append", chatInputBox.value);
     chatInputBox.value = "";
   }
 });

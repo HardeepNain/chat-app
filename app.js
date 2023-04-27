@@ -33,16 +33,15 @@ io.on("connection", function (socket) {
     socket.broadcast.emit("user-leave", disconnectedUser.name);
   });
 
-  // app.js ki emitted chat yaha pe receive hogi aur fir ye us user ke name ke saath us chat ko sbko bhej denge
   socket.on("chat-append", function (chat) {
     let name;
     for (let i = 0; i < users.length; i++) {
-      if (users[i].id == socket.id) { // jis user ki id current jo socket connect hai usse match ho gyi to iska matlab usne hi msg bheja hai to us user ka naam nikal lenge
+      if (users[i].id == socket.id) {
         name = users[i].name;
         break;
       }
     }
-    socket.broadcast.emit("append-chat", { name, chat }); //name aur chat dono ko baaki connected sockets ko bhej diya
+    socket.broadcast.emit("append-chat", { name, chat });
   });
 });
 
